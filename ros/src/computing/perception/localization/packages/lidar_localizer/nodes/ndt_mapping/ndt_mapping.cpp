@@ -1051,7 +1051,9 @@ int main(int argc, char** argv)
   ros::Subscriber param_sub = nh.subscribe("config/ndt_mapping", 10, param_callback);
   ros::Subscriber output_sub = nh.subscribe("config/ndt_mapping_output", 10, output_callback);
   ros::Subscriber points_sub = nh.subscribe("points_raw", 100000, points_callback);
-  ros::Subscriber odom_sub = nh.subscribe("/vehicle/odom", 100000, odom_callback);
+  // ros::Subscriber points_sub = nh.subscribe("/camera/depth/color/points", 100000, points_callback); // change to
+  // ros::Subscriber odom_sub = nh.subscribe("/vehicle/odom", 100000, odom_callback);
+  ros::Subscriber odom_sub = nh.subscribe("/odom", 100000, odom_callback);
   ros::Subscriber imu_sub = nh.subscribe(_imu_topic, 100000, imu_callback);
 
   ros::spin();
